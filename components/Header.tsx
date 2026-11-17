@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import { Suspense } from "react";
 import NavLinks from "./NavLinks";
 
 export default function Header() {
@@ -10,7 +11,9 @@ export default function Header() {
           Sacrament Planner
         </Link>
 
-        <NavLinks />
+        <Suspense fallback={<div className="h-6" aria-hidden="true" />}>
+          <NavLinks />
+        </Suspense>
       </div>
     </header>
   );

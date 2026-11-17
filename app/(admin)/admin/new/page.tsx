@@ -1,3 +1,4 @@
+import MeetingForm from "@/components/MeetingForm";
 
 export default function NewMeetingPage() {
   return (
@@ -10,10 +11,11 @@ export default function NewMeetingPage() {
         Create New Meeting
       </h1>
 
-      <p className="text-gray-600">
-        This page will allow administrators to create and manage sacrament
-        meeting programs. Meeting creation functionality is coming soon.
+      <p className="text-gray-600 mb-8">
+        Enter the details below to create a sacrament meeting program.
       </p>
+
+      <MeetingForm />
     </div>
   );
 }

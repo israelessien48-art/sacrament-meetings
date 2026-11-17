@@ -1,5 +1,7 @@
 
+import Link from "next/link";
 import type { SacramentMeeting } from "@/lib/types";
+import DeleteMeetingButton from "./DeleteMeetingButton";
 
 interface MeetingDetailProps {
   meeting: SacramentMeeting;
@@ -68,7 +70,10 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
           {meeting.speakers
             .sort((a, b) => a.order - b.order)
             .map((speaker) => (
-              <div key={`${speaker.order}-${speaker.name}`} className="border-l-4 border-blue-800 pl-4">
+              <div
+                key={`${speaker.order}-${speaker.name}`}
+                className="border-l-4 border-blue-800 pl-4"
+              >
                 <p className="font-semibold text-gray-900">{speaker.name}</p>
                 <p className="text-gray-600">{speaker.topic}</p>
               </div>
@@ -101,7 +106,7 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
         </section>
       )}
 
-      <section>
+      <section className="mb-8">
         <h2 className="text-xl font-bold text-gray-900 mb-4">
           Announcements
         </h2>
@@ -111,6 +116,17 @@ export default function MeetingDetail({ meeting }: MeetingDetailProps) {
           ))}
         </ul>
       </section>
+
+      <div className="border-t border-gray-200 pt-6 flex flex-wrap gap-4">
+        <Link
+          href={`/admin/${meeting.id}/edit`}
+          className="bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800"
+        >
+          Edit Meeting
+        </Link>
+
+        <DeleteMeetingButton meetingId={meeting.id} />
+      </div>
     </article>
   );
 }
