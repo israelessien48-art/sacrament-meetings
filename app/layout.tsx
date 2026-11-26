@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Sacrament Meeting Planner",
   description: "Plan and organize sacrament meeting programs.",
+  openGraph: {
+    title: "Sacrament Meeting Planner",
+    description: "Plan and organize sacrament meeting programs.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -34,3 +39,4 @@ export default function RootLayout({
     </html>
   );
 }
+
